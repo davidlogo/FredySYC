@@ -9,10 +9,10 @@
    COLOR VARIABLES & THEMES
    ============================================================ */
 :root {
-    --primary: #1a56db;
-    --primary-hover: #1340a8;
-    --primary-rgb: 26, 86, 219;
-    --accent: #f97316;
+    --primary: #86a24b;
+    --primary-hover: #6d853b;
+    --primary-rgb: 134, 162, 75;
+    --accent: #d97706;
     --background: #f1f5f9;
     --surface: #ffffff;
     --surface-card: #ffffff;
@@ -28,32 +28,32 @@
     --glass-bg: rgba(255,255,255,0.9);
     --glass-border: rgba(209,217,224,0.6);
     --hero-overlay: rgba(7,17,32,0.65);
-    --section-tag-bg: rgba(26,86,219,0.1);
-    --section-tag-color: #1340a8;
+    --section-tag-bg: rgba(134, 162, 75, 0.12);
+    --section-tag-color: #5c7033;
 }
 
 [data-theme="dark"] {
-    --primary: #4f83f7;
-    --primary-hover: #7aa3fa;
-    --primary-rgb: 79, 131, 247;
-    --accent: #fb923c;
-    --background: #08101d;
-    --surface: #0f1e31;
-    --surface-card: #162840;
+    --primary: #a2c263;
+    --primary-hover: #b5d379;
+    --primary-rgb: 162, 194, 99;
+    --accent: #f59e0b;
+    --background: #050a06;
+    --surface: #0a120b;
+    --surface-card: #101c12;
     --text-main: #e8f0fe;         /* Casi blanco para modo oscuro */
     --text-strong: #f0f6ff;
     --text-muted: #a8bcd4;        /* Gris claro con buen contraste */
     --text-on-dark: #ffffff;
     --text-on-dark-muted: rgba(255,255,255,0.88);
-    --border-color: #243550;
+    --border-color: #192c1d;
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3);
     --shadow-md: 0 4px 8px -1px rgb(0 0 0 / 0.35);
     --shadow-lg: 0 10px 25px -3px rgb(0 0 0 / 0.4);
-    --glass-bg: rgba(8,16,29,0.92);
-    --glass-border: rgba(79,131,247,0.2);
-    --hero-overlay: rgba(5,10,20,0.72);
-    --section-tag-bg: rgba(79,131,247,0.15);
-    --section-tag-color: #7aa3fa;
+    --glass-bg: rgba(5, 10, 6, 0.92);
+    --glass-border: rgba(162, 194, 99, 0.2);
+    --hero-overlay: rgba(3, 6, 4, 0.72);
+    --section-tag-bg: rgba(162, 194, 99, 0.15);
+    --section-tag-color: #cce69b;
 }
 
 /* ============================================================
@@ -188,7 +188,7 @@ strong { color: var(--text-strong); font-weight: 700; }
     box-shadow: 0 4px 14px rgba(0,0,0,0.15);
 }
 .btn-white:hover {
-    background-color: #f0f6ff;
+    background-color: #f2f6eb;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
@@ -227,9 +227,23 @@ header.scrolled .navbar { padding: 0.75rem 0; }
 .navbar-brand img {
     height: 44px;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Retroiluminación blanca para que resalte tanto en fondos claros como oscuros */
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
 }
-.navbar-brand img:hover { transform: scale(1.05); }
+.navbar-brand img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1)) drop-shadow(0 0 22px rgba(255, 255, 255, 0.95));
+}
+
+/* Retroiluminación en Modo Oscuro */
+[data-theme="dark"] .navbar-brand img {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 18px rgba(255, 255, 255, 0.85));
+}
+[data-theme="dark"] .navbar-brand img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.95));
+}
 
 /* Nav Menu */
 .nav-menu {
